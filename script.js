@@ -33,15 +33,14 @@ let clear=document.querySelector("#clear")
 clear.addEventListener('click', ()=>display.textContent="")
 let equals=document.querySelector("#equals")
 equals.addEventListener('click', ()=>{
-    let arr=display.textContent.split("")
-    if(arr.length<3){
-        display.textContent="Error"
-    }
-    else{
-        num1=Number(arr[0])
-        num2=Number(arr[2])
-        operator=arr[1]
-        display.textContent=operate(num1, num2, operator)
-    }
+    const numbers = display.textContent.split(/\D/g);
+const op = display.textContent.split(/\d/g).filter(Boolean);
+display.textContent=operate(numbers[0],numbers[1],op[0]);
+console.log(numbers);
+console.log(op);
     })
+
+
+
+    
     
